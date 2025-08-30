@@ -11,7 +11,7 @@ export default function Projects() {
           {/* Project 1 */}
           <div className="flex flex-col items-center">
             <h2 className="text-xl font-semibold text-gray-200 mb-4">
-              Dragon's Burden
+              Dragon&apos;s Burden
             </h2>
             <div className="w-full aspect-video rounded-xl overflow-hidden shadow-lg">
               <iframe
@@ -50,7 +50,7 @@ export default function Projects() {
             <p className="mt-4 text-gray-300 text-sm leading-relaxed">
               Astro-experience was made entirely by myself. Using C#, Unity, and git it was made as a VR experience
               to simulate some of the sensations an astronaut may have before heading into space. 
-              If you'd like to try it out you'd need a meta quest and to contact me for further instructions!
+              If you&apos;d like to try it out you&apos;d need a meta quest and to contact me for further instructions!
             </p>
           </div>
         </div>

@@ -4,7 +4,7 @@ export default function About() {
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
-            <h1 className="text-4xl font-bold text-gray-50">Hello, I'm Ryan</h1>
+            <h1 className="text-4xl font-bold text-gray-50">Hello, I&apos;m Ryan</h1>
             <p className="mt-2 text-lg text-gray-200">I Like working on cool stuff.</p>
             <p className="mt-2 text-lg text-gray-200">Here are some technologies I know:</p>
             
