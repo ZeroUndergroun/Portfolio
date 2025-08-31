@@ -11,7 +11,7 @@ export default function About() {
             </p>
             <p className="mt-2 text-lg text-gray-200">
                I&apos;m excited now to break into the industry and show how meaningful of an impact I can have within it. I love seeing how fast technology is growing, 
-               and I love to learn the newest technologies. AI is interesting to me and I&apos;m looking forward to see my mastery over it grow. I"m currently 
+               and I love to learn the newest technologies. AI is interesting to me and I&apos;m looking forward to seeing my mastery over it grow. I&apos;m currently 
                working as a freelance programmer and am always interested in a challenge! Head to my contact page to reach out and connect with me!
             </p>
             <p className="mt-2 text-3xl text-gray-200">Here are some technologies I know:</p>
