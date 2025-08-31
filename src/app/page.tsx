@@ -17,8 +17,8 @@ export default function Home() {
           <Image
             src="/headshot.jpg" 
             alt="Ryan Torrez Headshot"
-            width={500}
-            height={500}
+            width={450}
+            height={450}
             className="rounded-full shadow-lg border-4 border-navy-800"
             priority
           />

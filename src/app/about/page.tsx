@@ -4,17 +4,19 @@ export default function About() {
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
-            <h1 className="text-8xl font-bold text-gray-50">Hello, I&apos;m Ryan</h1>
+            <h1 className="text-6xl font-bold text-gray-50">Hello, I&apos;m Ryan</h1>
             <p className="mt-2 text-lg text-gray-200">I&apos;m an aspiring software engineer, with a penchant for video games and complex problems. I graduated from 
               California State University of Los Angeles in August of 2025 with a Bachelor&apos;s degree of Science in Computer Science. The jobs I&apos;ve worked so far, 
               while not being technical, proved crucial in shaping how I work both individually and as part of a team.
             </p>
             <p className="mt-2 text-lg text-gray-200">
                I&apos;m excited now to break into the industry and show how meaningful of an impact I can have within it. I love seeing how fast technology is growing, 
-               and I love to learn the newest technologies. AI is interesting to me and I&apos;m looking forward to seeing my mastery over it grow. I&apos;m currently 
-               working as a freelance programmer and am always interested in a challenge! Head to my contact page to reach out and connect with me!
+               and I love to learn the newest technologies. AI is interesting to me and I&apos;m looking forward to seeing my mastery over it grow.
             </p>
-            <p className="mt-2 text-3xl text-gray-200">Here are some technologies I know:</p>
+            <p className="mt-2 text-lg text-gray-200">
+              I&apos;m currently working as a freelance programmer and am always interested in a challenge! Head to my contact page to reach out and connect with me!
+            </p>
+            <p className="mt-2 text-3xl font-bold text-gray-200">Here are some technologies I know:</p>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mt-8">
               <div className="flex flex-col items-center p-4 rounded-lg bg-navy-900/50 hover:bg-navy-900/75 transition-colors">
