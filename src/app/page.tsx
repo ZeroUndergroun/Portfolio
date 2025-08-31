@@ -6,9 +6,9 @@ export default function Home() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl items-center">
         {/* Left side - Text */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <h1 className="text-6xl font-bold text-gray-50">Ryan Torrez</h1>
-          <p className="mt-6 text-xl text-gray-200 tracking-wide font-light">
-            Software Engineer • Game Developer
+          <h1 className="text-8xl font-bold text-gray-50">Ryan Torrez</h1>
+          <p className="mt-6 text-1xl text-gray-200 tracking-wide font-light">
+            Software Engineer • Game Developer • Fullstack Developer
           </p>
         </div>
 
@@ -17,8 +17,8 @@ export default function Home() {
           <Image
             src="/headshot.jpg" 
             alt="Ryan Torrez Headshot"
-            width={300}
-            height={300}
+            width={500}
+            height={500}
             className="rounded-full shadow-lg border-4 border-navy-800"
             priority
           />
