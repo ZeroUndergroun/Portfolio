@@ -43,7 +43,7 @@ export default function Contact() {
           {/* Right side - Image */}
           <div className="w-full md:w-1/2 flex justify-center md:justify-end">
             <Image
-              src="/medium-shot.jpg" 
+              src="/hs-blue.jpg" 
               alt="Ryan Torrez Mid shot"
               width={500}
               height={500}
