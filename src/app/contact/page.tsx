@@ -44,7 +44,7 @@ export default function Contact() {
           <div className="w-full md:w-1/2 flex justify-center md:justify-end">
             <Image
               src="/hs-blue.jpg" 
-              alt="Ryan Torrez Mid shot"
+              alt="Ryan Torrez headshot blue"
               width={500}
               height={500}
               className="rounded-full shadow-lg border-4 border-navy-800"
