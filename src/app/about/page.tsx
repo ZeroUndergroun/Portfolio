@@ -49,7 +49,7 @@ export default function About() {
                     key={i}
                     className="flex flex-col items-center p-4 rounded-lg bg-navy-900/50 hover:bg-navy-900/75 transition-colors"
                   >
-                    <img src={tech.src} alt={tech.alt} className="h-12 w-12 mb-2" />
+                    <Image src={tech.src} alt={tech.alt} width={48} height={48} className="h-12 w-12 mb-2" />
                     <span className="text-gray-200 text-sm">{tech.alt}</span>
                   </div>
                 ))}

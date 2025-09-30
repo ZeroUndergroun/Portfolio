@@ -1,4 +1,5 @@
 import WebGLDebug from '@/components/WebGLDebug';
+import Image from 'next/image';
 
 export default function Projects() {
   return (
@@ -54,7 +55,7 @@ export default function Projects() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-3 py-2 bg-gray-800 hover:bg-gray-700 text-gray-100 rounded-md shadow-sm transition-colors"
               >
-                <img src="/logos/itchio.svg" alt="itch.io" className="w-6 h-6" />
+                <Image src="/logos/itchio.svg" alt="itch.io" width={24} height={24} className="w-6 h-6" />
                 <span className="text-sm">Play the Game!</span>
               </a>
             </div>
@@ -106,7 +107,7 @@ export default function Projects() {
             <h2 className="text-xl font-semibold text-gray-200 mb-4">BP Mail</h2>
             <div className="w-full rounded-xl overflow-hidden shadow-lg bg-gray-900 p-6">
               <div className="w-full mb-4">
-                <img src="logos/nasa.png" className="w-full rounded-md border border-gray-800" />
+                <Image src="/logos/nasa.png" alt="NASA / BP Mail" width={1200} height={600} className="w-full rounded-md border border-gray-800" />
               </div>
               <p className="text-gray-300 text-sm leading-relaxed">
                 BP Mail was my senior capstone project done in collaboration with NASA JPL. It&apos;s purpose was to create end to end mail transmission throughout the harsh environment of space. 

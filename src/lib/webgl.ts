@@ -1,13 +1,17 @@
+interface WebGLDebugRendererInfo {
+  UNMASKED_RENDERER_WEBGL: number;
+}
+
 export function getWebGLRenderer(gl: WebGLRenderingContext | WebGL2RenderingContext | null): string {
   if (!gl) return 'no-gl-context';
 
   try {
-    const ext = (gl.getExtension as any)?.('WEBGL_debug_renderer_info')
-      || (gl.getExtension as any)?.('MOZ_WEBGL_debug_renderer_info')
-      || (gl.getExtension as any)?.('WEBKIT_WEBGL_debug_renderer_info');
+    const ext = (gl.getExtension as unknown as (name: string) => unknown)('WEBGL_debug_renderer_info')
+      || (gl.getExtension as unknown as (name: string) => unknown)('MOZ_WEBGL_debug_renderer_info')
+      || (gl.getExtension as unknown as (name: string) => unknown)('WEBKIT_WEBGL_debug_renderer_info');
 
-    if (ext && (ext as any).UNMASKED_RENDERER_WEBGL) {
-      const unmasked = gl.getParameter((ext as any).UNMASKED_RENDERER_WEBGL) as string | null;
+    if (ext && typeof (ext as WebGLDebugRendererInfo).UNMASKED_RENDERER_WEBGL === 'number') {
+      const unmasked = gl.getParameter((ext as WebGLDebugRendererInfo).UNMASKED_RENDERER_WEBGL) as string | null;
       if (unmasked) return unmasked;
     }
   } catch (e) {
