@@ -1,7 +1,10 @@
+import WebGLDebug from '@/components/WebGLDebug';
+
 export default function Projects() {
   return (
     <main className="min-h-screen pt-24 px-8 bg-gradient-to-b from-navy-900 to-navy-950">
       <div className="max-w-6xl mx-auto">
+        <WebGLDebug />
         <h1 className="text-4xl font-bold text-gray-50 mb-12 text-center">
           My Projects
         </h1>
