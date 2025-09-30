@@ -13,15 +13,17 @@ export default function Projects() {
             <h2 className="text-xl font-semibold text-gray-200 mb-4">
               Dragon&apos;s Burden
             </h2>
-            <div className="w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+            <div className="w-full aspect-video rounded-xl overflow-hidden shadow-lg relative">
               <iframe
                 width="100%"
                 height="100%"
                 src="https://www.youtube.com/embed/sU0ZaL9QTho"
                 title="Project One"
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                 allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{ position: 'relative', zIndex: 0 }}
               ></iframe>
             </div>
             <p className="mt-4 text-gray-300 text-sm leading-relaxed">
@@ -60,15 +62,17 @@ export default function Projects() {
             <h2 className="text-xl font-semibold text-gray-200 mb-4">
               Astro-Experience
             </h2>
-            <div className="w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+            <div className="w-full aspect-video rounded-xl overflow-hidden shadow-lg relative">
               <iframe
                 width="100%"
                 height="100%"
                 src="https://www.youtube.com/embed/27hLl6K5D7g"
                 title="Project Two"
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                 allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{ position: 'relative', zIndex: 0 }}
               ></iframe>
             </div>
             <p className="mt-4 text-gray-300 text-sm leading-relaxed">
