@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect rx="20" ry="20" width="128" height="128" fill="#f857a6" />
+  <g fill="#fff" font-family="Segoe UI, Roboto, Arial, sans-serif" font-weight="700" font-size="48" text-anchor="middle">
+    <text x="64" y="82">itch</text>
+  </g>
+</svg>
