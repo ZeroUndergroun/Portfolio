@@ -24,7 +24,7 @@ export default function About() {
                 AI is interesting to me and I&apos;m looking forward to seeing my mastery over it grow.
               </p>
               <p>
-                I&apos;m currently working as a freelance programmer and am always interested in a challenge! 
+                I&apos;m currently working as a freelance programmer and am always interested in a challenge! Head to my services page to see how I can help you! 
                 Head to my contact page to reach out and connect with me!
               </p>
             </div>

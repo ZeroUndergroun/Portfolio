@@ -14,6 +14,9 @@ export default function Navbar() {
           <Link href="/projects" className="nav-link text-gray-200 hover:text-white text-lg md:text-xl font-medium">
             Projects
           </Link>
+          <Link href="/services" className="nav-link text-gray-200 hover:text-white text-lg md:text-xl font-medium">
+            Services
+          </Link>
           <Link href="/contact" className="nav-link text-gray-200 hover:text-white text-lg md:text-xl font-medium">
             Contact
           </Link>

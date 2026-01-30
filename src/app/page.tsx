@@ -8,7 +8,7 @@ export default function Home() {
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <h1 className="text-8xl font-bold text-gray-50">Ryan Torrez</h1>
           <p className="mt-6 text-1xl text-gray-200 tracking-wide font-light">
-            Software Engineer • Game Developer • Fullstack Developer
+            Full-stack Engineer • Backend Development & Automation
           </p>
         </div>
 
