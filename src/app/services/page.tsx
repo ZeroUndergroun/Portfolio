@@ -24,7 +24,7 @@ export default function Services() {
               <li>I provide a clear scope and estimate</li>
               <li>I build, test, and iterate with regular updates</li>
             </ul>
-            <p className="text-2xl font text-gray-50 mb-6">If you're interested in working together or have a project in mind, feel free to <a href="/contact" className="underline hover:text-gray-300">reach out</a>.</p>
+            <p className="text-2xl font text-gray-50 mb-6">If you&apos;re interested in working together or have a project in mind, feel free to <a href="/contact" className="underline hover:text-gray-300">reach out</a>.</p>
           </div>
         </div>
       </div>
