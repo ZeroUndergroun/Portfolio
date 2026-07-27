@@ -3,6 +3,41 @@
 @tailwind utilities;
 
 @layer components {
+  /* Marquee track holds two identical copies of its children, so translating it exactly
+     -50% lands the second copy where the first began and the loop is seamless. */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll linear infinite;
+  }
+
+  .marquee-track--reverse {
+    animation-direction: reverse;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+      transform: none;
+    }
+    .marquee {
+      overflow-x: auto;
+    }
+  }
+
   .nav-link {
     @apply relative text-slate-600 hover:text-slate-900 py-2 transition-colors duration-200 text-sm font-medium;
   }

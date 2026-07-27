@@ -1,4 +1,5 @@
 import Image from "next/image"
+import SocialLinks from "@/components/SocialLinks"
 
 export default function Contact() {
   return (
@@ -10,34 +11,7 @@ export default function Contact() {
             <h1 className="text-7xl font-bold text-gray-50 mb-6">Contact Me</h1>
             <p className="text-2xl font text-gray-50 mb-6">Email: ryantorrez60@gmail.com</p>
             <p className="text-2xl font text-gray-50 mb-6">Phone: (562) 787-4948</p>
-            <a
-              href="https://www.linkedin.com/in/ryan-torrez-39530414a"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block hover:opacity-80 transition-opacity"
-            >
-              <Image
-                src="/logos/lin.png"
-                alt="LinkedIn Profile"
-                width={70}
-                height={70}
-                className="w-12 h-12"
-              />
-            </a>
-            <a
-              href="https://github.com/ZeroUndergroun"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block hover:opacity-80 transition-opacity"
-            >
-              <Image
-                src="/logos/github.png"
-                alt="Github Profile"
-                width={70}
-                height={70}
-                className="w-12 h-12"
-              />
-            </a>
+            <SocialLinks />
           </div>
 
           {/* Right side - Image */}

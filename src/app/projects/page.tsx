@@ -1,5 +1,38 @@
 import WebGLDebug from '@/components/WebGLDebug';
 import Image from 'next/image';
+import Link from 'next/link';
+import ImageCarousel, { type CarouselImage } from '@/components/ImageCarousel';
+
+const nestScreenshots: CarouselImage[] = [
+  {
+    src: '/screenshots/nest_feed.PNG',
+    alt: 'The Nest home feed with a post composer, a video post, a campus bulletin board, and trending hashtags',
+    caption: 'The home feed, with a campus bulletin board and trending hashtags alongside it.',
+    width: 1600,
+    height: 827,
+  },
+  {
+    src: '/screenshots/nest_search.PNG',
+    alt: 'Search results in The Nest showing users tagged as Student, Staff, and Alumni',
+    caption: 'Search surfaces people by role, so students, staff, and alumni can find each other.',
+    width: 1600,
+    height: 830,
+  },
+  {
+    src: '/screenshots/nest_messaging.PNG',
+    alt: 'Direct message conversation view in The Nest',
+    caption: 'Direct messaging between members.',
+    width: 1600,
+    height: 818,
+  },
+  {
+    src: '/screenshots/nest_notifications.PNG',
+    alt: 'Notifications list in The Nest showing recent follows',
+    caption: 'Notifications keep track of new follows and activity.',
+    width: 1600,
+    height: 552,
+  },
+];
 
 export default function Projects() {
   return (
@@ -153,6 +186,87 @@ export default function Projects() {
               <div className="mt-4 flex items-center gap-3">
                 <a
                   href="https://github.com/ZeroUndergroun/CivicAI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-100 rounded-md shadow-sm transition-colors"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.57.11.78-.25.78-.55 0-.27-.01-1-.02-1.96-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.11-.75.4-1.26.72-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.07 11.07 0 0 1 2.9-.39c.98.01 1.97.13 2.9.39 2.2-1.5 3.16-1.18 3.16-1.18.63 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.71 5.4-5.29 5.68.41.36.78 1.07.78 2.16 0 1.56-.02 2.82-.02 3.2 0 .3.2.66.79.55C20.71 21.4 24 17.09 24 12c0-6.35-5.15-11.5-12-11.5z" />
+                  </svg>
+                  <span className="text-sm">View Repo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Web Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+          {/* Project 5 */}
+          <div className="flex flex-col items-center">
+            <h2 className="text-xl font-semibold text-gray-200 mb-4">The Nest</h2>
+            <div className="w-full rounded-xl overflow-hidden shadow-lg bg-gray-900 p-6">
+              <div className="mb-4">
+                <ImageCarousel images={nestScreenshots} label="The Nest screenshots" />
+              </div>
+              <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <p>
+                  The Nest is a social platform built exclusively for the Cal State LA community, connecting current
+                  students, alumni, incoming students, and staff, with access gated behind .calstatela.edu email
+                  verification. I architected and built the whole stack solo: a Next.js, TypeScript, and Tailwind
+                  frontend on Vercel, a FastAPI and SQLAlchemy backend on Railway, and PostgreSQL through Supabase,
+                  spanning a 9-table schema and a REST API split across 5 router groups.
+                </p>
+                <p>
+                  Security got a lot of the attention. Passwords are hashed with bcrypt, sessions run on JWTs issued in
+                  httpOnly cookies, sensitive routes are rate limited, every input is validated through Pydantic, and
+                  all database access goes through the ORM to keep SQL injection off the table.
+                </p>
+                <p>
+                  It&apos;s open source under an MIT license and I welcome contributions from other Cal State LA CS
+                  students! If you&apos;d like to poke around inside, reach out through my{" "}
+                  <Link href="/contact" className="text-gray-100 underline underline-offset-4 hover:text-white">
+                    contact page
+                  </Link>{" "}
+                  and I&apos;ll gladly pass along test credentials.
+                </p>
+              </div>
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://github.com/ZeroUndergroun/The-Nest"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-100 rounded-md shadow-sm transition-colors"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.57.11.78-.25.78-.55 0-.27-.01-1-.02-1.96-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.11-.75.4-1.26.72-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.07 11.07 0 0 1 2.9-.39c.98.01 1.97.13 2.9.39 2.2-1.5 3.16-1.18 3.16-1.18.63 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.71 5.4-5.29 5.68.41.36.78 1.07.78 2.16 0 1.56-.02 2.82-.02 3.2 0 .3.2.66.79.55C20.71 21.4 24 17.09 24 12c0-6.35-5.15-11.5-12-11.5z" />
+                  </svg>
+                  <span className="text-sm">View Repo</span>
+                </a>
+                <a
+                  href="https://the-nest-phi.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-100 rounded-md shadow-sm transition-colors"
+                >
+                  <span className="text-sm">Visit the Site!</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Project 6 */}
+          <div className="flex flex-col items-center">
+            <h2 className="text-xl font-semibold text-gray-200 mb-4">ALC School Site</h2>
+            <div className="w-full rounded-xl overflow-hidden shadow-lg bg-gray-900 p-6">
+              <p className="text-gray-300 text-sm leading-relaxed">
+                A website built for the Academy of Language and Culture, a school in Matagalpa, Nicaragua. It was put
+                together with HTML, CSS, and Python to give the school a presence online and a place to share
+                information with prospective students and their families.
+              </p>
+              <div className="mt-4 flex items-center gap-3">
+                <a
+                  href="https://github.com/ZeroUndergroun/ALC-School-Site"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-100 rounded-md shadow-sm transition-colors"
