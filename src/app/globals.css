@@ -2,23 +2,257 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ══════════════════════════════════════════════════════════════════════════
+   Design tokens — "Modernist", green-accent variant.
+   Everything visual reads from these; flip the theme by setting
+   [data-theme="dark"] on <html>. The accent ramp is INVERTED in dark mode
+   (not replaced), so every -700 reference stays legible with no per-component
+   change. Fonts (--font-heading/body/mono) are injected by next/font on <body>.
+   ══════════════════════════════════════════════════════════════════════ */
+:root {
+  --color-bg: #f3f2f2;
+  --color-surface: #eae9e9;
+  --color-text: #201e1d;
+  --color-divider: color-mix(in srgb, #201e1d 40%, transparent);
+
+  --color-accent: #0f8f4c;
+  --color-accent-100: #eef8f1;
+  --color-accent-200: #cfebd9;
+  --color-accent-300: #a5dbb8;
+  --color-accent-400: #66c48c;
+  --color-accent-500: #21a55f;
+  --color-accent-600: #0d8a4b;
+  --color-accent-700: #06663a;
+  --color-accent-800: #054c2c;
+  --color-accent-900: #0b3a25;
+
+  --color-neutral-100: #f8f4f4;
+  --color-neutral-200: #eae7e7;
+  --color-neutral-300: #d7d3d3;
+  --color-neutral-400: #bab6b6;
+  --color-neutral-500: #9b9797;
+  --color-neutral-600: #7d7979;
+  --color-neutral-700: #605d5d;
+  --color-neutral-800: #444141;
+  --color-neutral-900: #2d2b2b;
+
+  /* Derived text tints — used all over for muted/lead/caption copy. */
+  --text-lead: color-mix(in srgb, var(--color-text) 78%, transparent);
+  --text-muted: color-mix(in srgb, var(--color-text) 60%, transparent);
+  --text-caption: color-mix(in srgb, var(--color-text) 55%, transparent);
+  --text-faint: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+
+[data-theme="dark"] {
+  --color-bg: #171615;
+  --color-surface: #221f1e;
+  --color-text: #f3f2f2;
+  --color-divider: color-mix(in srgb, #f3f2f2 34%, transparent);
+
+  --color-neutral-100: #2d2b2b;
+  --color-neutral-200: #3a3737;
+  --color-neutral-300: #4a4747;
+  --color-neutral-400: #605d5d;
+  --color-neutral-500: #7d7979;
+  --color-neutral-600: #9b9797;
+  --color-neutral-700: #bab6b6;
+  --color-neutral-800: #d7d3d3;
+  --color-neutral-900: #f0eeee;
+
+  --color-accent: #3fca80;
+  --color-accent-100: #0d241a;
+  --color-accent-200: #123423;
+  --color-accent-300: #1c4d33;
+  --color-accent-400: #2a7a4d;
+  --color-accent-500: #34a866;
+  --color-accent-600: #58d089;
+  --color-accent-700: #7fdca6;
+  --color-accent-800: #b3ebcd;
+  --color-accent-900: #dcf7e8;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.012em;
+    margin: 0;
+  }
+  h1 {
+    letter-spacing: -0.02em;
+  }
+  a {
+    color: var(--color-accent-700);
+    text-underline-offset: 3px;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  :focus {
+    outline: none;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
 @layer components {
-  /* Marquee track holds two identical copies of its children, so translating it exactly
-     -50% lands the second copy where the first began and the loop is seamless. */
+  /* — buttons — flush-left labels, zero radius, accent-700 primary fill — */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--color-text);
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 8px 15px;
+    border-radius: 0;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .btn svg {
+    display: block;
+  }
+  .btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .btn-primary {
+    background: var(--color-accent-700);
+    color: var(--color-bg);
+  }
+  .btn-primary:hover {
+    background: var(--color-accent-800);
+  }
+  .btn-primary:active {
+    background: var(--color-accent-900);
+  }
+  .btn-secondary {
+    border-color: var(--color-divider);
+  }
+  .btn-secondary:hover {
+    background: color-mix(in srgb, var(--color-text) 7%, transparent);
+  }
+  .btn-secondary:active {
+    background: color-mix(in srgb, var(--color-text) 14%, transparent);
+  }
+  .btn-icon {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+  }
+
+  /* — tags — small labels tinted from the ramps — */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    padding: 3px 10px;
+    border-radius: 0;
+  }
+  .tag-accent {
+    background: var(--color-accent-100);
+    color: var(--color-accent-800);
+  }
+  .tag-neutral {
+    background: var(--color-neutral-100);
+    color: var(--color-neutral-800);
+  }
+  .tag-outline {
+    border: 1px solid var(--color-accent-700);
+    color: var(--color-accent-700);
+  }
+
+  /* — a strong 2px horizontal rule — */
+  .hr {
+    height: 2px;
+    border: 0;
+    margin: 16px 0;
+    background: var(--color-divider);
+  }
+
+  /* — the image wrapper: every content photograph prints black and white — */
+  .grayscale-img {
+    filter: grayscale(1) contrast(1.08);
+  }
+
+  /* — mono micro-label used everywhere (kickers, numerals, nav, captions) — */
+  .kicker {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--text-caption);
+  }
+}
+
+@layer utilities {
+  /* — full-bleed helper for the marquee / poster fields — */
+  .full-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  /* — scroll reveal: hidden until JS adds .is-visible — */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* — marquee band — two identical rows, translate -50% for a seamless loop — */
   .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee-scroll linear infinite;
+    animation: marquee-scroll 26s linear infinite;
   }
-
-  .marquee-track--reverse {
-    animation-direction: reverse;
-  }
-
-  .marquee:hover .marquee-track {
-    animation-play-state: paused;
-  }
-
   @keyframes marquee-scroll {
     from {
       transform: translateX(0);
@@ -27,26 +261,9 @@
       transform: translateX(-50%);
     }
   }
-
   @media (prefers-reduced-motion: reduce) {
     .marquee-track {
       animation: none;
-      transform: none;
     }
-    .marquee {
-      overflow-x: auto;
-    }
-  }
-
-  .nav-link {
-    @apply relative text-slate-600 hover:text-slate-900 py-2 transition-colors duration-200 text-sm font-medium;
-  }
-  
-  .nav-link::after {
-    @apply content-[''] bg-gray-200 h-[2px] w-0 left-0 -bottom-[2px] rounded-full absolute transition-all duration-300;
-  }
-  
-  .nav-link:hover::after {
-    @apply w-full;
   }
 }
