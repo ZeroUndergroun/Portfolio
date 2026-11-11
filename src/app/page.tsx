@@ -1,15 +1,18 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
-import HeroGameFrame from "@/components/HeroGameFrame";
+import Tetris from "@/components/Tetris";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import {
+  profile,
   projects,
   stats,
   marqueeItems,
   services,
   tools,
   experience,
+  education,
+  awards,
 } from "@/lib/content";
 
 export default function Home() {
@@ -28,10 +31,10 @@ export default function Home() {
               prove itself.
             </h1>
             <p className="m-0 mb-7 max-w-[46ch] text-[17px] leading-[1.6] text-lead">
-              Hi, I&apos;m Ryan. I write the software — and then I write the
-              software that keeps it honest. Test automation, internal tooling,
-              and quality programs for teams that would rather ship on Friday
-              without holding their breath.
+              Hi, I&apos;m Ryan — a software engineer in Los Angeles. I write the
+              software, then I write the software that keeps it honest. Backend
+              development, automation, and quality work for teams that would
+              rather ship on Friday without holding their breath.
             </p>
             <div className="flex flex-wrap gap-3">
               <a className="btn btn-primary no-underline" href="#work">
@@ -39,14 +42,14 @@ export default function Home() {
               </a>
               <a
                 className="btn btn-secondary no-underline"
-                href="mailto:hello@ryantorrez.dev"
+                href={`mailto:${profile.email}`}
               >
-                hello@ryantorrez.dev
+                {profile.email}
               </a>
             </div>
           </div>
 
-          <HeroGameFrame />
+          <Tetris />
         </div>
 
         {/* Stat rule row */}
@@ -208,19 +211,21 @@ export default function Home() {
 
           <Reveal delay={60}>
             <p className="m-0 text-[19px] leading-[1.55]">
-              I&apos;m a developer who spends as much time proving software works
-              as writing it.
+              I&apos;m a software engineer based in Los Angeles, with a penchant
+              for video games and complex problems.
             </p>
             <p className="mt-4 max-w-[56ch] text-[15px] leading-[1.6] text-lead">
-              My work sits at the seam between building and testing: I write
-              backend services and internal tools, then build the automation and
-              quality programs that keep them honest as they ship. I care about
-              the edges — the places where software quietly breaks — and about
-              leaving a team better equipped than I found it.
+              I graduated from California State University, Los Angeles in August
+              2025 with a B.S. in Computer Science. These days I work at SQA
+              Squared as a Junior SQaaS Trainee, where I design and execute test
+              cases across our partners&apos; systems, automate them with
+              Playwright, and write Python to take the manual work out of testing.
+              Spending my days in quality assurance changed how I build things: I
+              notice the edges now, the places where software quietly breaks.
             </p>
             <p className="mt-3 max-w-[56ch] text-[15px] leading-[1.6] text-lead">
-              I take on project work and ongoing SQaaS engagements alike, and
-              I&apos;m always up for a hard problem.
+              I love how quickly technology moves and I love chasing it. I also
+              take on freelance work and am always interested in a challenge.
             </p>
 
             <hr className="hr" />
@@ -263,6 +268,45 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+        {/* Education */}
+        <div className="mt-16">
+          <p className="m-0 mb-4 font-mono text-[12px] uppercase tracking-[0.12em] text-muted">
+            Education
+          </p>
+          <Reveal className="grid grid-cols-[110px_1fr] gap-4 border-y-2 border-divider py-5 sm:grid-cols-[110px_1.2fr_1fr]">
+            <span className="font-mono text-[13px] uppercase tracking-[0.06em] text-accent-700">
+              {education.years}
+            </span>
+            <span className="font-heading text-[17px] font-bold">
+              {education.degree}
+            </span>
+            <span className="text-[14px] text-muted">{education.school}</span>
+          </Reveal>
+        </div>
+
+        {/* Awards */}
+        <div className="mt-16">
+          <p className="m-0 mb-4 font-mono text-[12px] uppercase tracking-[0.12em] text-muted">
+            Awards
+          </p>
+          <div className="grid grid-cols-1 gap-0.5 bg-divider sm:grid-cols-3">
+            {awards.map((award, i) => (
+              <Reveal
+                key={award.title}
+                delay={Math.min(i, 6) * 60}
+                className="bg-bg p-5"
+              >
+                <p className="m-0 font-heading text-[16px] font-bold">
+                  {award.title}
+                </p>
+                <p className="mt-1.5 text-[13px] leading-[1.5] text-muted">
+                  {award.detail}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ── Contact poster ───────────────────────────────────────────── */}
@@ -275,21 +319,24 @@ export default function Home() {
             04 — Contact
           </p>
           <h2 className="mt-4 max-w-[22ch] text-[clamp(38px,7vw,96px)] font-bold leading-[0.94] tracking-[-0.02em] text-bg">
-            Got a suite nobody trusts? Let&apos;s talk.
+            Have something to build, or to prove? Let&apos;s talk.
           </h2>
           <p className="mt-6 max-w-[52ch] text-[18px] leading-[1.6] text-bg/90">
-            Tell me what you&apos;re shipping and where it hurts. I&apos;ll tell
-            you how I&apos;d make it trustworthy.
+            Tell me what you&apos;re working on and where it hurts. Freelance
+            projects, quality work, or just a hard problem — I&apos;m interested.
           </p>
           <a
-            href="mailto:hello@ryantorrez.dev"
+            href={`mailto:${profile.email}`}
             className="mt-8 inline-block text-[clamp(20px,2.6vw,32px)] font-bold text-bg underline decoration-2 underline-offset-[6px]"
           >
-            hello@ryantorrez.dev
+            {profile.email}
           </a>
+          <p className="mt-3 font-mono text-[14px] tracking-[0.04em] text-bg/90">
+            {profile.phone}
+          </p>
           <div className="mt-8 flex flex-wrap gap-6 font-mono text-[13px] uppercase tracking-[0.08em]">
             <a
-              href="https://github.com/ZeroUndergroun"
+              href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
               className="text-bg underline decoration-bg/55 underline-offset-4"
@@ -297,13 +344,17 @@ export default function Home() {
               GitHub
             </a>
             <a
-              href="#"
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-bg underline decoration-bg/55 underline-offset-4"
             >
               LinkedIn
             </a>
             <a
-              href="#"
+              href={profile.resume}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-bg underline decoration-bg/55 underline-offset-4"
             >
               Résumé (PDF)

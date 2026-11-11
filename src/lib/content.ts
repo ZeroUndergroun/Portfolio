@@ -1,5 +1,16 @@
-// Placeholder content for the redesign. Copy here is invented per the design
-// handoff and gets swapped for Ryan's real material during "tweakage".
+// Real content, migrated from the original portfolio. Case-study bodies are
+// written from the project descriptions on the old site; project years are
+// best-estimates and easy to adjust.
+
+export const profile = {
+  name: "Ryan Torrez",
+  email: "ryantorrez60@gmail.com",
+  phone: "(562) 787-4948",
+  github: "https://github.com/ZeroUndergroun",
+  linkedin: "https://www.linkedin.com/in/ryan-torrez-39530414a",
+  resume: "/documents/resume_2026.1.pdf",
+  location: "Los Angeles, CA",
+};
 
 export type Project = {
   slug: string;
@@ -13,62 +24,84 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "regression-suite",
+    slug: "the-nest",
     num: "01",
-    kicker: "Test automation · Playwright",
-    title: "A regression suite that runs itself",
+    kicker: "Full stack · Next.js + FastAPI",
+    title: "The Nest — a campus-only social platform",
     blurb:
-      "Replaced a fragile manual pass with a parallelized Playwright suite wired into CI, cutting release checks from a day to minutes.",
-    client: "Fintech platform",
+      "A social platform for the Cal State LA community, gated behind campus email — feed, role-based search, DMs, and notifications, built solo.",
+    client: "Solo build",
     year: "2025",
   },
   {
-    slug: "sqaas",
+    slug: "civicai",
     num: "02",
-    kicker: "SQaaS · Quality on retainer",
-    title: "Quality as a standing service",
+    kicker: "AI · Hackathon",
+    title: "CivicAI — facts against the noise",
     blurb:
-      "Embedded quality practice for a product team: coverage tracking, ticket triage, and automation that keeps pace with the roadmap.",
-    client: "SaaS startup",
+      "A Google Cloud Looker Hackathon 2025 entry that grounds answers in public data using Python, Streamlit, and GPT-4o-mini. Open source.",
+    client: "Hackathon",
     year: "2025",
   },
   {
-    slug: "warehouse-tooling",
+    slug: "bp-mail",
     num: "03",
-    kicker: "Internal tooling · Python",
-    title: "Internal tools for a warehouse floor",
+    kicker: "Networking · Capstone",
+    title: "BP Mail — email across deep space",
     blurb:
-      "Python services and a thin UI that took the manual paperwork out of receiving, cutting entry errors and freeing up the floor team.",
-    client: "Logistics",
+      "Senior capstone with NASA JPL: end-to-end mail transmission over delay-tolerant networking, built by a team of 12 undergraduates.",
+    client: "NASA JPL · CSULA",
+    year: "2025",
+  },
+  {
+    slug: "dragons-burden",
+    num: "04",
+    kicker: "Game · Unity",
+    title: "Dragon's Burden — a playable first level",
+    blurb:
+      "A Unity game built with two other students; I handled level design and environmental mechanics. Level one is live on itch.io.",
+    client: "Team of 3",
     year: "2024",
   },
   {
-    slug: "contract-testing",
-    num: "04",
-    kicker: "API & contract testing",
-    title: "Contracts that catch breakage early",
+    slug: "astro-experience",
+    num: "05",
+    kicker: "VR · Unity",
+    title: "Astro-Experience — a taste of launch",
     blurb:
-      "Contract tests between services so a breaking change fails in the pipeline instead of in production, with reports the whole team reads.",
-    client: "Platform team",
+      "A solo VR experience that simulates some of the sensations an astronaut feels before heading into space.",
+    client: "Solo",
     year: "2024",
+  },
+  {
+    slug: "alc-school-site",
+    num: "06",
+    kicker: "Web · Freelance",
+    title: "ALC School Site — a school online",
+    blurb:
+      "A website for the Academy of Language and Culture in Matagalpa, Nicaragua, giving the school a home on the web.",
+    client: "Freelance",
+    year: "2023",
   },
 ];
 
 export type Stat = { value: number; suffix: string; label: string };
 
 export const stats: Stat[] = [
-  { value: 8, suffix: "", label: "Years shipping software" },
-  { value: 400, suffix: "+", label: "Releases supported" },
-  { value: 14, suffix: "", label: "Teams worked alongside" },
+  { value: 6, suffix: "", label: "Projects shipped" },
+  { value: 10, suffix: "+", label: "Weekly QA tickets" },
+  { value: 2025, suffix: "", label: "B.S. Computer Science" },
 ];
 
 export const marqueeItems = [
   "Test automation",
-  "Playwright · Selenium · Pytest",
-  "CI/CD pipelines",
+  "Playwright · QASE",
+  "Python · Java · C#",
+  "FastAPI · Next.js · React",
+  "Backend development",
   "SQaaS engagements",
-  "API & contract testing",
-  "Internal tooling",
+  "PostgreSQL · Supabase",
+  "Jira · Azure DevOps",
 ];
 
 export type Service = {
@@ -81,37 +114,63 @@ export type Service = {
 export const services: Service[] = [
   {
     num: "01",
-    title: "Test automation build-out",
-    body: "Stand up a maintainable automation suite — Playwright, Selenium, or Pytest — wired into your pipeline and owned by the team after handoff.",
-    tag: "Project or retainer",
-  },
-  {
-    num: "02",
-    title: "SQaaS — quality on retainer",
-    body: "An embedded quality practice: coverage tracking, ticket triage, and automation that keeps pace with the roadmap.",
-    tag: "Ongoing",
-  },
-  {
-    num: "03",
-    title: "Pipeline & CI work",
-    body: "Faster, more trustworthy pipelines — parallelized tests, sensible gates, and reporting the whole team actually reads.",
+    title: "Backend development",
+    body: "Python, Java, and .NET services, API design and implementation, and the glue code that takes the manual work out of a process.",
     tag: "Project",
   },
   {
+    num: "02",
+    title: "Automation & internal tools",
+    body: "Automation scripts and internal tooling that streamline a workflow, plus dockerizing and deploying the result.",
+    tag: "Project or retainer",
+  },
+  {
+    num: "03",
+    title: "QA & test automation",
+    body: "Test case design and automation with Playwright, tracked in QASE — quality programs that keep releases honest.",
+    tag: "Ongoing",
+  },
+  {
     num: "04",
-    title: "Software development",
-    body: "Backend services, internal tooling, and the glue code that takes the manual work out of a process.",
+    title: "Fixes & full-stack builds",
+    body: "Bug fixes, refactoring, and maintenance on existing code, plus full-stack web builds when a project needs the whole thing.",
     tag: "Project",
   },
 ];
 
 export const tools = [
-  "Python", "TypeScript", "C#", "Playwright", "Selenium", "Pytest", "Cypress",
-  "Pact", "Postman", "FastAPI", "React", "Next.js", "Postgres", "Docker",
-  "GitHub Actions", "Jenkins", "Azure DevOps", "Grafana",
+  "Python", "Java", "JavaScript", "TypeScript", "C#", "C", "C++",
+  "React", "Next.js", "Node.js", "FastAPI", "Tailwind CSS", "Supabase",
+  "PostgreSQL", "MySQL", "Playwright", "QASE", "Jira", "Azure DevOps",
+  "Git", "AWS", ".NET", "Unix/Linux",
+];
+
+export type ExperienceRow = { years: string; role: string; org: string };
+
+export const experience: ExperienceRow[] = [
+  { years: "2026 — now", role: "Junior SQaaS Trainee", org: "SQA Squared" },
+  { years: "2022 — 2023", role: "Brand Ambassador", org: "First Step Marketing" },
+];
+
+export const education = {
+  years: "2025",
+  school: "California State University, Los Angeles",
+  degree: "B.S. Computer Science",
+};
+
+export type Award = { title: string; detail: string };
+
+export const awards: Award[] = [
+  { title: "Dean's List", detail: "2023, 2024" },
+  {
+    title: "Computer Science Founder Award",
+    detail: "CSHM — at the recommendation of the CS Chair",
+  },
+  { title: "Employee of the Month", detail: "First Step Marketing" },
 ];
 
 export type Metric = { value: string; label: string };
+export type CaseLink = { label: string; href: string };
 
 export type CaseDetail = {
   role: string;
@@ -119,111 +178,130 @@ export type CaseDetail = {
   lead: string;
   problem: string;
   outcome: string;
-  metrics: Metric[];
-  did: string[];
-  quote: string;
-  quoteBy: string;
+  metrics?: Metric[];
+  did?: string[];
+  quote?: string;
+  quoteBy?: string;
+  links?: CaseLink[];
+  /** YouTube id — rendered in the hero slot when present. */
+  heroVideo?: string;
+  heroImage?: string;
+  heroImageAlt?: string;
 };
 
-// Placeholder case-study bodies keyed by project slug. Real write-ups replace
-// these during tweakage.
 export const caseDetails: Record<string, CaseDetail> = {
-  "regression-suite": {
-    role: "Automation lead",
-    stack: "Playwright · TypeScript · GitHub Actions",
-    lead: "A release checklist that used to eat a full day now runs on every push in minutes — and the team trusts the green.",
+  "the-nest": {
+    role: "Solo — full stack",
+    stack: "Next.js · FastAPI · PostgreSQL",
+    lead: "A social platform built exclusively for the Cal State LA community, with access gated behind .calstatela.edu email verification.",
     problem:
-      "Every release depended on a manual regression pass: slow, inconsistent, and easy to skip under deadline. Bugs slipped through precisely when the team was moving fastest.",
+      "Current students, alumni, incoming students, and staff at Cal State LA had no shared space of their own — somewhere access is limited to the campus community.",
     outcome:
-      "A parallelized Playwright suite, wired into CI with sensible gates, that gives a trustworthy answer on every push. Manual checks dropped to a fraction, and confidence in shipping went up.",
+      "A full social platform I architected and built solo: a home feed, search that surfaces people by role, direct messaging, and notifications, all behind campus email verification. Open source under an MIT license.",
     metrics: [
-      { value: "1 day → 8 min", label: "Regression time" },
-      { value: "320+", label: "Automated checks" },
-      { value: "4×", label: "Releases per week" },
+      { value: "9", label: "Table schema" },
+      { value: "5", label: "API router groups" },
+      { value: "MIT", label: "Open source" },
     ],
     did: [
-      "Mapped the manual checklist into deterministic, parallelizable specs.",
-      "Wired the suite into CI with retry and flake quarantine.",
-      "Built reporting the whole team reads, not just QA.",
-      "Handed off ownership with docs and a maintenance rhythm.",
+      "Built the Next.js + TypeScript + Tailwind frontend, deployed on Vercel.",
+      "Built the FastAPI + SQLAlchemy backend, deployed on Railway.",
+      "Modeled a 9-table PostgreSQL schema through Supabase.",
+      "Hardened auth: bcrypt hashing, JWTs in httpOnly cookies, rate-limited routes, Pydantic validation, and ORM-only database access.",
     ],
-    quote:
-      "We stopped holding our breath on release day. The suite just tells us the truth.",
-    quoteBy: "Eng lead · Fintech platform",
+    links: [
+      { label: "View repo", href: "https://github.com/ZeroUndergroun/The-Nest" },
+      { label: "Visit the site", href: "https://the-nest-phi.vercel.app" },
+    ],
+    heroImage: "/screenshots/nest_feed.PNG",
+    heroImageAlt: "The Nest home feed",
   },
-  sqaas: {
-    role: "Embedded QA consultant",
-    stack: "Pytest · Postman · Grafana",
-    lead: "Quality as a standing service — coverage, triage, and automation that keeps pace with the roadmap instead of trailing it.",
+  civicai: {
+    role: "Solo — hackathon",
+    stack: "Python · Streamlit · Looker Studio · GPT-4o-mini",
+    lead: "My submission for Google Cloud's Looker Hackathon 2025 — cutting through online misinformation with numbers drawn from public datasets.",
     problem:
-      "A fast-moving product team had no dedicated quality practice. Coverage was invisible and regressions were found by customers.",
+      "Public conversation is full of misinformation. The facts often exist in public datasets, but they aren't easy to reach or read.",
     outcome:
-      "An embedded quality program with tracked coverage, triaged tickets, and automation that grows with the product.",
+      "A tool that grounds its answers in public data: a Python backend, a Streamlit frontend, Looker Studio for visualization, and GPT-4o-mini as the engine. Still early, but open source under an MIT license and open to contributions.",
     metrics: [
-      { value: "68% → 91%", label: "Critical-path coverage" },
-      { value: "−54%", label: "Escaped defects" },
-      { value: "Weekly", label: "Quality reporting" },
+      { value: "2025", label: "Looker Hackathon" },
+      { value: "MIT", label: "Open source" },
     ],
     did: [
-      "Stood up coverage tracking against critical user paths.",
-      "Set a triage rhythm the team could sustain.",
-      "Automated the highest-value regressions first.",
-      "Reported quality trends to product and leadership.",
+      "Built the Python backend and the Streamlit frontend.",
+      "Wired GPT-4o-mini in as the reasoning engine.",
+      "Visualized public datasets through Looker Studio.",
     ],
-    quote: "It feels like we finally have a quality function — on retainer.",
-    quoteBy: "Product lead · SaaS startup",
+    links: [
+      { label: "View repo", href: "https://github.com/ZeroUndergroun/CivicAI" },
+    ],
+    heroVideo: "rEJTBHzLuAE",
   },
-  "warehouse-tooling": {
-    role: "Software developer",
-    stack: "Python · FastAPI · Postgres",
-    lead: "Internal tools that took the paperwork off the warehouse floor and the errors out of receiving.",
+  "bp-mail": {
+    role: "Team of 12 — with NASA JPL",
+    stack: "DTN · Bundle Protocol · SMTP",
+    lead: "My senior capstone, in collaboration with NASA JPL: end-to-end mail transmission across the harsh environment of space.",
     problem:
-      "Receiving ran on paper and manual data entry. Errors compounded downstream and the floor team lost hours to rework.",
+      "Delivering mail end-to-end through space means tolerating long delays and disruptions that ordinary internet protocols can't handle.",
     outcome:
-      "Python services and a thin UI that captured receiving accurately at the source, cutting entry errors and freeing the team.",
+      "A system for end-to-end mail transmission over delay-tolerant networking, built by a squad of 12 undergraduates under CSULA faculty and a liaison from NASA. There's a detailed wiki worth reading.",
     metrics: [
-      { value: "−72%", label: "Entry errors" },
-      { value: "3 hrs/day", label: "Time returned" },
-      { value: "100%", label: "Digitized receiving" },
+      { value: "12", label: "Person team" },
+      { value: "NASA JPL", label: "Collaboration" },
     ],
-    did: [
-      "Modeled the receiving workflow with the floor team.",
-      "Built FastAPI services and a focused operator UI.",
-      "Migrated historical records into Postgres.",
-      "Rolled out with training and a feedback loop.",
+    links: [
+      { label: "Repo & wiki", href: "https://github.com/250MHz/bpmail/wiki" },
     ],
-    quote: "The floor runs calmer now. The tools just fit how we work.",
-    quoteBy: "Operations manager · Logistics",
+    heroImage: "/logos/nasa.png",
+    heroImageAlt: "NASA / BP Mail",
   },
-  "contract-testing": {
-    role: "Automation engineer",
-    stack: "Pact · Pytest · GitHub Actions",
-    lead: "Contract tests that catch a breaking change in the pipeline instead of in production.",
+  "dragons-burden": {
+    role: "Team of 3 — level design",
+    stack: "Unity · C# · Git",
+    lead: "A game made with two other CS undergraduates. I handled the level design and some of the environmental mechanics; the first level is live and playable on itch.io.",
     problem:
-      "Independent services drifted apart. A breaking change in one surfaced as a production incident in another, with slow, painful diagnosis.",
+      "A course game project that had to become something actually worth playing — a real first level, not just a prototype.",
     outcome:
-      "Consumer-driven contract tests that fail fast in CI when an interface breaks, with reports every team can read.",
-    metrics: [
-      { value: "0", label: "Contract incidents since" },
-      { value: "12", label: "Services covered" },
-      { value: "Minutes", label: "Time to detect" },
+      "A finished, playable first level shipped on itch.io, built in Unity and C# with Git for version control across a three-person team.",
+    links: [
+      {
+        label: "View repo",
+        href: "https://github.com/dayva001/CS4555-Game-Programming/tree/main",
+      },
+      { label: "Play the game", href: "https://aerosaber.itch.io/dragons-burden" },
     ],
-    did: [
-      "Introduced consumer-driven contracts between services.",
-      "Gated deploys on contract verification in CI.",
-      "Built shared reporting across teams.",
-      "Documented the pattern for new services.",
+    heroVideo: "sU0ZaL9QTho",
+  },
+  "astro-experience": {
+    role: "Solo",
+    stack: "Unity · C# · Git",
+    lead: "A solo VR experience that simulates some of the sensations an astronaut might feel before heading into space.",
+    problem:
+      "Conveying what launch feels like is hard to do on a screen — it wants to be felt, not watched.",
+    outcome:
+      "A Meta Quest VR experience built solo in Unity and C#. Trying it needs a headset and a quick message to me for setup instructions.",
+    links: [
+      {
+        label: "View repo",
+        href: "https://github.com/ZeroUndergroun/Astro-Experience-Repo",
+      },
     ],
-    quote: "Breakage fails the pipeline now, not the pager.",
-    quoteBy: "Platform lead",
+    heroVideo: "27hLl6K5D7g",
+  },
+  "alc-school-site": {
+    role: "Solo — freelance",
+    stack: "HTML · CSS · Python",
+    lead: "A website for the Academy of Language and Culture, a school in Matagalpa, Nicaragua.",
+    problem:
+      "The school had no presence online and no easy way to share information with prospective students and their families.",
+    outcome:
+      "A simple, maintainable site built with HTML, CSS, and Python that gave the school a home on the web and a place to publish information.",
+    links: [
+      {
+        label: "View repo",
+        href: "https://github.com/ZeroUndergroun/ALC-School-Site",
+      },
+    ],
   },
 };
-
-export type ExperienceRow = { years: string; role: string; org: string };
-
-export const experience: ExperienceRow[] = [
-  { years: "2024 — now", role: "QA & Automation Consultant", org: "Independent / SQaaS" },
-  { years: "2022 — 2024", role: "Software Developer", org: "Product team" },
-  { years: "2020 — 2022", role: "Automation Engineer", org: "Platform team" },
-  { years: "2018 — 2020", role: "Junior Developer", org: "Early-career role" },
-];

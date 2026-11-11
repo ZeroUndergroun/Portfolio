@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
@@ -64,6 +65,23 @@ export default async function CaseStudy({
           <p className="mt-5 max-w-[54ch] text-[19px] leading-[1.55] text-lead">
             {detail.lead}
           </p>
+          {detail.links && detail.links.length > 0 && (
+            <div className="mt-6 flex flex-wrap gap-3">
+              {detail.links.map((l, i) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`btn no-underline ${
+                    i === 0 ? "btn-primary" : "btn-secondary"
+                  }`}
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+          )}
         </header>
 
         {/* Facts strip */}
@@ -85,30 +103,55 @@ export default async function CaseStudy({
           ))}
         </div>
 
-        {/* Hero image */}
+        {/* Hero media — YouTube embed, real image, or placeholder */}
         <Reveal className="mt-10">
-          <div className="grayscale-img border-2 border-divider">
-            <ImagePlaceholder ratio="21 / 9" label="Hero image" />
-          </div>
+          {detail.heroVideo ? (
+            <div className="relative aspect-video w-full overflow-hidden border-2 border-divider">
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src={`https://www.youtube.com/embed/${detail.heroVideo}`}
+                title={project.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          ) : detail.heroImage ? (
+            <div className="grayscale-img border-2 border-divider">
+              <Image
+                src={detail.heroImage}
+                alt={detail.heroImageAlt ?? project.title}
+                width={1600}
+                height={900}
+                className="h-auto w-full"
+              />
+            </div>
+          ) : (
+            <div className="grayscale-img border-2 border-divider">
+              <ImagePlaceholder ratio="21 / 9" label="Hero image" />
+            </div>
+          )}
         </Reveal>
 
         {/* Metrics */}
-        <div className="mt-10 grid grid-cols-1 gap-0.5 bg-divider sm:grid-cols-3">
-          {detail.metrics.map((m, i) => (
-            <Reveal
-              key={m.label}
-              delay={Math.min(i, 6) * 60}
-              className="bg-surface px-[26px] py-[30px] text-center"
-            >
-              <div className="font-heading text-[clamp(28px,3.4vw,44px)] font-bold leading-none tracking-[-0.02em] text-accent-700">
-                {m.value}
-              </div>
-              <div className="mt-3 font-mono text-[12px] uppercase tracking-[0.1em] text-muted">
-                {m.label}
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        {detail.metrics && detail.metrics.length > 0 && (
+          <div className="mt-10 grid grid-cols-1 gap-0.5 bg-divider sm:grid-cols-3">
+            {detail.metrics.map((m, i) => (
+              <Reveal
+                key={m.label}
+                delay={Math.min(i, 6) * 60}
+                className="bg-surface px-[26px] py-[30px] text-center"
+              >
+                <div className="font-heading text-[clamp(28px,3.4vw,44px)] font-bold leading-none tracking-[-0.02em] text-accent-700">
+                  {m.value}
+                </div>
+                <div className="mt-3 font-mono text-[12px] uppercase tracking-[0.1em] text-muted">
+                  {m.label}
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        )}
 
         {/* Body */}
         <div className="mt-14 grid grid-cols-1 gap-14 md:grid-cols-2">
@@ -123,35 +166,43 @@ export default async function CaseStudy({
             <p className="mt-3 text-[17px] leading-[1.6]">{detail.outcome}</p>
           </div>
 
-          <div>
-            <p className="m-0 font-mono text-[13px] uppercase tracking-[0.12em] text-accent-700">
-              What I did
-            </p>
-            <div className="mt-4 border-t-2 border-divider">
-              {detail.did.map((item, i) => (
-                <div
-                  key={item}
-                  className="grid grid-cols-[32px_1fr] gap-3 border-b border-divider py-4"
-                >
-                  <span className="font-mono text-[13px] text-accent-700">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-[15px] leading-[1.6]">{item}</span>
-                </div>
-              ))}
+          {detail.did && detail.did.length > 0 && (
+            <div>
+              <p className="m-0 font-mono text-[13px] uppercase tracking-[0.12em] text-accent-700">
+                What I did
+              </p>
+              <div className="mt-4 border-t-2 border-divider">
+                {detail.did.map((item, i) => (
+                  <div
+                    key={item}
+                    className="grid grid-cols-[32px_1fr] gap-3 border-b border-divider py-4"
+                  >
+                    <span className="font-mono text-[13px] text-accent-700">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-[15px] leading-[1.6]">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Pull quote */}
-        <blockquote className="my-14 border-y-2 border-divider py-11">
-          <p className="m-0 max-w-[34ch] font-heading text-[clamp(22px,2.8vw,36px)] font-bold leading-[1.15] tracking-[-0.02em]">
-            “{detail.quote}”
-          </p>
-          <cite className="mt-4 block font-mono text-[12px] uppercase not-italic tracking-[0.1em] text-muted">
-            {detail.quoteBy}
-          </cite>
-        </blockquote>
+        {detail.quote && (
+          <blockquote className="my-14 border-y-2 border-divider py-11">
+            <p className="m-0 max-w-[34ch] font-heading text-[clamp(22px,2.8vw,36px)] font-bold leading-[1.15] tracking-[-0.02em]">
+              “{detail.quote}”
+            </p>
+            {detail.quoteBy && (
+              <cite className="mt-4 block font-mono text-[12px] uppercase not-italic tracking-[0.1em] text-muted">
+                {detail.quoteBy}
+              </cite>
+            )}
+          </blockquote>
+        )}
+
+        {!detail.quote && <div className="pb-14" />}
       </article>
 
       {/* Next case */}
