@@ -97,7 +97,7 @@ export default function About() {
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
-                href="/documents/resume_2026.1.pdf"
+                href="/documents/RESUME_OFFICIAL(11.10.26).pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-md bg-navy-900/75 px-5 py-3 text-gray-100 shadow-sm transition-colors hover:bg-navy-900"
